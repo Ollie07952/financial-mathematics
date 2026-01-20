@@ -84,7 +84,7 @@ def impliedVol(S, X, r, t, C, P):
     Px0 = Cx0 - S + np.array(X)*np.exp(-r*t) #Corrado-Miller approximations through put-call parity
     callIV = Series(fsolve(fc, Cx0, args = (S,X,r,t,C))*100, index = X).round(2)
     putIV = Series(fsolve(fp, Px0, args = (S,X,r,t,P))*100, index = X).round(2)
-    return callIV.where(callIV > 0, "Err").astype(str) + "%", putIV.where(putIV > 0, "Err").astype(str) + "%"
+    return callIV.where(callIV > 0, "Err"), putIV.where(putIV > 0, "Err")
 
 def optionChain(ticker, expiration, r, sigma, strikes = 10):
     """
@@ -118,7 +118,8 @@ def optionChain(ticker, expiration, r, sigma, strikes = 10):
     p = p.iloc[(p.index.get_loc(p["Intrinsic Value"][p["Intrinsic Value"] != 0].idxmin()) - strikes//2):(p.index.get_loc(p["Intrinsic Value"][p["Intrinsic Value"] != 0].idxmin()) + strikes//2), 2:5]
     c["Black-Scholes"] = bsCall(S, c.index, r, t, sigma)[0].round(3)
     p["Black-Scholes"] = bsPut(S, p.index, r, t, sigma)[0].round(3)
-    c["Implied Volatility"], p["Implied Volatility"] = impliedVol(S, c.index, r, t, c["lastPrice"], p["lastPrice"])
+    civ, piv = impliedVol(S, c.index, r, t, c["lastPrice"], p["lastPrice"])
+    c["Implied Volatility"], p["Implied Volatility"] = civ.astype(str) + "%", piv.astype(str) + "%"
     c = c.join(bsCall(S, c.index, r, t, sigma)[1].round(3))
     p = p.join(bsPut(S, p.index, r, t, sigma)[1].round(3))
     c.columns.name = "Calls"
