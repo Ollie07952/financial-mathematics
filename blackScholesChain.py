@@ -54,7 +54,7 @@ def bsPut(S, X, r, t, sigma):
 
 def impliedVol(S, X, r, t, C, P):
     """
-    Calculates call and put option implied volatilities given option chain data
+    Numerically approximates call and put option implied volatilities given market prices and conditions
     --
     :arg S: float; current underlying price
     :arg X: array of floats/ints; exercise price(s)
@@ -63,7 +63,7 @@ def impliedVol(S, X, r, t, C, P):
     :arg C: array of floats; last market call prices
     :arg P: array of floats; last market put prices
     --
-    :return: pandas series of floats; call option implied volatilities
+    :return: pandas series of floats; call and put option implied volatilities
     """
     import numpy as np
     from pandas import Series
@@ -84,7 +84,6 @@ def impliedVol(S, X, r, t, C, P):
     Px0 = Cx0 - S + np.array(X)*np.exp(-r*t) #Corrado-Miller approximations through put-call parity
     callIV = Series(fsolve(fc, Cx0, args = (S,X,r,t,C))*100, index = X).round(2)
     putIV = Series(fsolve(fp, Px0, args = (S,X,r,t,P))*100, index = X).round(2)
-    putIV = putIV.where(putIV > 0, "Err")
     return callIV.where(callIV > 0, "Err").astype(str) + "%", putIV.where(putIV > 0, "Err").astype(str) + "%"
 
 def optionChain(ticker, expiration, r, sigma, strikes = 10):
