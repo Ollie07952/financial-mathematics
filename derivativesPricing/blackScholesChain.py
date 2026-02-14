@@ -1,4 +1,4 @@
-def bsCall(S, X, r, t, sigma):
+def bsCall(S,X,r,t,sigma):
     """
     Calculates theoretical call values using the Black-Scholes model.
     --
@@ -25,7 +25,7 @@ def bsCall(S, X, r, t, sigma):
     greeks = DataFrame({"Delta":delta, "Gamma":gamma, "Theta":theta}, index=X)
     return call, greeks
 
-def bsPut(S, X, r, t, sigma):
+def bsPut(S,X,r,t,sigma):
     """
     Calculates theoretical put values using the Black-Scholes model.
     --
@@ -52,7 +52,7 @@ def bsPut(S, X, r, t, sigma):
     greeks = DataFrame({"Delta": delta, "Gamma": gamma, "Theta": theta}, index=X)
     return put, greeks
 
-def impliedVol(S, X, r, t, C, P):
+def impliedVol(S,X,r,t,C,P):
     """
     Numerically approximates call and put option implied volatilities given market prices and conditions
     --
@@ -70,12 +70,12 @@ def impliedVol(S, X, r, t, C, P):
     from scipy.optimize import fsolve
     from scipy.stats import norm
 
-    def fc(sigma, S, X, r, t, C):
+    def fc(sigma,S,X,r,t,C):
         d1 = (np.log(S / np.array(X)) + (r + 0.5 * sigma ** 2) * t) / (sigma * np.sqrt(t))
         d2 = d1 - sigma * np.sqrt(t)
         return S * norm.cdf(d1) - np.array(X) * np.exp(-r * t) * norm.cdf(d2) - np.array(C)
 
-    def fp(sigma, S, X, r, t, P):
+    def fp(sigma,S,X,r,t,P):
         d1 = (np.log(S / np.array(X)) + (r + 0.5 * sigma ** 2) * t) / (sigma * np.sqrt(t))
         d2 = d1 - sigma * np.sqrt(t)
         return np.array(X) * np.exp(-r * t) * norm.cdf(-d2) - S * norm.cdf(-d1) - np.array(P)
@@ -86,7 +86,7 @@ def impliedVol(S, X, r, t, C, P):
     putIV = Series(fsolve(fp, Px0, args = (S,X,r,t,P))*100, index = X).round(2)
     return callIV.where(callIV > 0, "Err"), putIV.where(putIV > 0, "Err")
 
-def optionChain(ticker, expiration, r, sigma, strikes = 10):
+def optionChain(ticker,expiration,r,sigma,strikes = 10):
     """
     Calculates and returns pandas dataframe for put and call option chains with Black-Scholes theoretical values, implied volatilities, and greeks columns.
     Disclaimer - This tool is meant for purely educational purposes and no responsibility is accepted for the accuracy of the figures produced. Market quotes data is from Yahoo! Finance.

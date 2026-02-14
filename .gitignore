@@ -1,16 +1,14 @@
 .venv/
-venv/
+.idea/
+.ipynb_checkpoints/
 
-Python Data/
-Non-repo/
+data/
+misc/
+
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-
-.idea/
-
-.ipynb_checkpoints
 
 .DS_Store
 Thumbs.db
