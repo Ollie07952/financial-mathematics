@@ -35,7 +35,7 @@ def binomial(s0,p,u,d,paths,N):
     import numpy as np
 
     rng = np.random.default_rng()
-    binomials = rng.binomial(1, p, size = (paths,N)) #1 = Heads, 0 = Tails
+    binomials = rng.binomial(1, p, size = (paths,N)) #1:Heads, 0:Tails
     steps = np.where(binomials == 1, u, d)
     steps = np.concatenate((np.full(shape = (paths,1), fill_value = s0), steps), axis = 1)
     walks = np.cumprod(steps, axis = 1)
