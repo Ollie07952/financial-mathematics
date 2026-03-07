@@ -1,0 +1,257 @@
+\documentclass[]{article}
+\title{Risk-Neutral Option Pricing and Monte Carlo Methods}
+\author{Ollie Cole\\
+\href{mailto:o.cole1-24@student.lboro.ac.uk}{\texttt{o.cole1-24@student.lboro.ac.uk}}\\
+Loughborough University}
+\date{\today}
+
+\usepackage{amsmath, amssymb, amsthm, hyperref, graphicx, caption, float, booktabs}
+\usepackage[backend = biber, style = numeric, sorting = none]{biblatex}
+\usepackage[noabbrev, capitalise]{cleveref}
+\creflabelformat{equation}{\textup{#2(#1)#3}}
+\crefname{equation}{\textup{Equation}}{\textup{Equations}}
+\makeatletter
+\AddToHook{cmd/appendix/before}{\def\cref@section@alias{appendix}}
+\makeatother
+
+\addbibresource{references.bib}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\theoremstyle{plain}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent We introduce principal notions of \textit{no-arbitrage} and \textit{risk-neutral} in the context of a one-period binomial asset pricing model before extending these ideas to multiple periods to give the foundational discrete-time replication argument. As a corollary of this, we use the therein described backward induction approach to consider an example on a European call option, allowing us to alongside discuss convergence of a Monte Carlo method. We further demonstrate the utility of such methods by considering an exotic path-dependent contract, namely an arithmetic Asian, for which analytical solutions are not practically obtainable; and before finally extending the discussion to the continuous-time setting where similar analytical challenges arise.
+\end{abstract}
+
+\section{Introduction}
+
+The discrete-time binomial model, originally formalised by Cox, Ross, and Rubinstein in their 1979 paper \cite{CRR_1979}, remains a seminal work detailing a simplified and intuitive approach to deriving the fair value of a derivatives contract. By assigning fixed probabilities to the upwards and downwards move of a stocks price they were able to show that, under certain assumptions, the time-zero price of a derivatives contract must be equal to the discounted risk-neutral expectation of its future payoff. This characterisation still serves as the basis for most modern-day option pricing and as we will see later on, lends itself to relatively simple but robust methods of approximating the fair price of both vanilla and exotic option contracts.
+
+\section{The binomial model and risk-neutral pricing}\label{sec:risk_neutral_and_binomial}
+
+We will begin this section by introducing the one-period binomial model under the risk-neutral no-arbitrage framework, before extending these ideas to multiple periods and stating the all important replication argument.
+
+\subsection{The one-period binomial model}
+
+Consider a stock with time-zero price $S_0$ and that can take only two (non-negative) values at time one with multiplicative scaling factors $u, d \, (u > d)$, for upwards and downwards, respectively. We can think of any one-period move in the price of the stock as being dictated by the flipping of a not-necessarily-fair coin, where the stock takes price $S_{0}u$ if the result of the toss is heads $(H)$ and $S_{0}d$ if the result is tails $(T)$; as in \cref{fig:one_period_binomial}.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width = 0.8\textwidth]{figs/one_period_binomial.pdf}
+	\caption{A one-period binomial model with upward move $u$, downward move $d$.}
+	\label{fig:one_period_binomial}
+\end{figure}
+\noindent Additionally, consider a money market that both lends and purchases at a fixed single-period interest rate $r$. We formally define \textit{arbitrage} as any strategy that has a non-zero probability of making a riskless profit. Then, it follows that \textit{no-arbitrage rules} force the following inequality:
+\begin{equation}\label{eq:no_arb}
+	0 < d < 1 + r < u
+\end{equation}
+Indeed, it is easy to show that if these rules were not abided by, a trader could create a strategy that at a worse breaks even and has a non-zero probability of making a profit. Such a strategy is known as \textit{self-financing}.
+
+As such, the principal assumptions of the binomial asset pricing model are summarised as:
+\begin{itemize}
+	\item No arbitrage opportunities exist within the market.
+	\item The borrowing rate and lending rate are the same and fixed.
+	\item The bid-ask spread is zero; greater still, markets are frictionless.
+	\item At any time, any stock can only take two possible values in the next period. Furthermore, the stock pays no dividend.
+\end{itemize}
+Hereafter, unless stated otherwise, we are assumed to be operating in such an environment.
+
+Now consider a derivative security with time-zero price $V_{0}$ and that pays $V_{1}$ at time one. Then the \text{risk-neutral pricing formula} for $V_{0}$ is
+\begin{equation}\label{eq:one_period_formula}
+	V_{0} = \frac{1}{1+r}\begin{bmatrix}\tilde{p}V_{1}(H) + \tilde{q}V_{1}(T)\end{bmatrix}
+\end{equation}
+where $\tilde{p}, \, \tilde{q} = 1-\tilde{p}$ are the \textit{risk-neutral probabilities} of flipping a head or a tail respectively. Indeed, this result makes intuitive sense: a derivatives contract should be worth no more or no less than its mean return --- the weighted average of its payoffs.
+
+In this context, \textit{risk-neutral} describes market participants not requiring compensation for risk, nor expressing willingness to pay extra for it. This assumption allows use of a replication argument since both stocks and money market instruments are assumed to generate the same mean return, in this case $r$. In particular, \textit{risk-neutral probabilities} (or so-called \textit{measures}) describe the set of probabilities that under which the stocks expected return is exactly $r$ --- the same as in the money market.
+
+\begin{remark}
+	Of course, in reality this is rarely the case; to compensate for the greater risk of investing in the stock market, the mean return on an investment in this market is typically greater than that of an equivalent investment in the money market.
+\end{remark}
+
+We now extend these ideas to more than one period, where we can state the main theorem of this document: the replication argument for a multiperiod binomial model.
+
+\subsection{Multiperiod binomial trees}
+
+Consider a two-period binomial tree in which a coin is tossed twice with fixed risk-neutral probabilities $\tilde{p},\tilde{q}$ of a head or a tail respectively. We denote the payoff of a derivatives contract expiring at time two on an underlying whose price is solely determined by the result of these coin tosses --- identically to the one-period setup --- as $V_2$. Then \cref{eq:one_period_formula} extends naturally to give us the conditional risk-neutral pricing formula for the derivative security at time one.
+\begin{equation}
+	\begin{matrix} V_{1}(T) = \displaystyle\frac{1}{1+r}\begin{bmatrix} \tilde{p}V_{2}(TH) + \tilde{q}V_{2}(TT)\end{bmatrix}\\[8pt] V_{1}(H) = \displaystyle \frac{1}{1+r}\begin{bmatrix} \tilde{p}V_{2}(HH) + \tilde{q}V_{2}(HT)\end{bmatrix} \end{matrix}
+\end{equation}
+Where $V_1 (\omega)$ is the random variable denoting the price of the contract at time one and which depends on the result of the first coin toss, $\omega = \begin{Bmatrix} T,H \end{Bmatrix}$. Then by \cref{eq:one_period_formula} itself we can easily obtain the time-zero price.
+
+By applying this backward induction logic iteratively, we can further generalise this to $n$-periods with the following theorem, adapted from \cite[Thm~1.2.2]{SHREVE_2004}.
+
+\begin{theorem}[The replication argument for an $n$-period binomial model]
+	Consider a portfolio at time $n$ consisting of $\Delta _n$ shares of stock trading at price $S_n$. If this stock follows a binomial asset model with risk-neutral probabilities of an upward move $u$ and downward move $d$ of $\tilde{p} = \frac{1+r-d}{u-d}, \, \tilde{q} = \frac{u-1-r}{u-d}$ respectively, then the value of this portfolio at time $n+1$ is defined recursively as the random variable
+	\begin{equation}
+		X_{n+1} = \Delta_{n}S_{n+1}+(1+r)(X_{n}-\Delta_{n}S_{n})
+	\end{equation}
+	Where the random variables $S_{N},\Delta_{N}$ are dependent on the results of the first $N$ tosses of a coin with probabilities $\tilde{p},\tilde{q}$ of a head and a tail respectively. And where $r$ is the fixed single-period interest rate.
+	
+	\medskip
+	
+	\noindent Then consider a derivative security on this underlying expiring at time $N$ and define the random variables $V_{N-1},\ldots,V_1,V_0$ recursively by
+	\begin{equation}
+		V_{n}(\omega_{1},\ldots,\omega_{n}) = \frac{1}{1+r}\begin{bmatrix} \tilde{p}V_{n+1}(\omega_{1},\ldots,\omega_{n}H) + \tilde{q}V_{n+1}(\omega_{1},\ldots,\omega_{n}T)\end{bmatrix}
+	\end{equation}
+	Such that each $V_n$ is dependent only on the first $n$ coin tosses, $\omega_1, \ldots, \omega_n$ for $n = 0, \ldots, N-1$.
+	
+	\medskip
+	
+	\noindent Letting $V_n$ denote the price of the derivative security at time $n$, if we choose
+	\begin{equation}
+		\Delta_{n} = \displaystyle \frac{V_{n+1}(\omega_{1},\ldots,\omega_{n}H) - V_{n+1}(\omega_{1},\ldots,\omega_{n}T)}{S_{n+1}(\omega_{1},\ldots,\omega_{n}H) - S_{n+1} (\omega_{1},\ldots,\omega_{n}T)}
+	\end{equation}
+	and set $X_0 = V_0$ --- the price of the derivative security at time zero --- then $X_n (\omega_1,\ldots,\omega_n) = V_n (\omega_1,\ldots,\omega_n)$ for all $n$ and this portfolio is called the replicating portfolio.
+\end{theorem}
+
+\begin{proof}
+	\renewcommand{\qedsymbol}{}
+	The proof of this theorem is omitted for the sake of clarity. However, readers may refer to \cite[p.~13]{SHREVE_2004} for such a proof if they wish.
+\end{proof}
+
+\begin{remark}
+	Since we are assuming a fixed payoff time, this argument only applies to those derivative securities where early exercise is not a consideration, i.e. European options.
+\end{remark}
+
+\begin{remark}
+	For readers familiar with the theory of Markov processes, it may be of interest to note the stochastic process $(S_n)_{n \geq 0}$ of the stocks price is indeed a discrete-time Markov chain. Since the probabilities of tossing a head or a tail are fixed, $S_{n+1}$ is a random variable dependent only on the value of $S_n$, and hence $(S_n)_{n \geq 0}$ exhibits the Markov property.
+\end{remark}
+
+In essence, the replication argument assigns to the price of the derivative security the \textit{discounted risk-neutral expectation of its future payoff}. By creating a portfolio consisting of underlying and money-market investments that replicates the payoff of a derivatives contract on that underlying in \textbf{all future states}, by the no-arbitrage assumption, the price of such a derivative security, $V_n$, must coincide with the cost of holding this replicating portfolio, $X_n$.
+
+Having formally stated this important theorem, we will begin the next section by making a few remarks on the computational complexity of this backward induction approach before discussing a practical implementation via Monte Carlo simulation.
+
+\section{A practical implementation of the binomial model}
+
+Combinatorially, there are $2^{N}$ permutations when flipping a two-sided coin $N$ times and hence this same $2^{N}$ possible paths the stock price can take. For a value of $N$ (i.e. the number of periods) sufficiently useful, computation of put and call prices using the previously seen backward induction approach becomes unreasonable. Hence, instead of considering the value of the derivative security as a random variable dependent on the path of coin tosses, $V_{n}(\omega_{1},\ldots, \omega_{n})$, we introduce a new random variable $v_{n}(S)$ dependent only on the price of the stock, $S$, at time $n$.
+
+Since our system does not care whether we first move up and then down, or first down and then up (multiplication in $\mathbb{R}$ is commutative), we observe multiple different paths leading to the same final value of $S$. This greatly reduces the number of cases that need be considered and thus the computational cost of calculating them. In fact, since our system can only move up or down one \textit{tick} at a one time, this change in perspective reduces the number of cases from an exponential $2^{N}$ to the linear $N+1$.
+
+Beyond the computational speed-up, this reconsideration lends itself to a relatively straightforward implementation via Monte Carlo simulation. Indeed, by drawing samples (coin tosses) from a binomial distribution with probability of success equal to the risk-neutral probability $\tilde{p}$ of an upward (or indeed downward, there is nothing special about the order here other than for consistency's sake) move, one can simulate the price of an underlying assumed to follow this binomial asset model and hence calculate the payoff of a derivatives contract on that same underlying. All that remains then to approximate the fair time-zero price of this contract is to average this payoff over many simulations and discount it back to present value using the risk-free rate.
+
+Equipped with this recipe, we now showcase convergence of this Monte Carlo method to the analytical solution for a vanilla option before demonstrating its inherent utility for exotic contracts, where obtaining such analytical solutions quickly becomes computationally unreasonable.
+
+\subsection{A vanilla example}
+
+\noindent Consider a vanilla call option expiring at time 15 on an underlying assuming the following parameters:
+\begin{itemize}
+	\item time-zero stock price, $S_0 = 100$
+	\item strike price, $X = 100$
+	\item risk-free rate, $r = 0.01$
+	\item multiplicative factor for an upwards move, $u = 1.05$
+	\item multiplicative factor for a downwards move, $d = 0.95$
+\end{itemize}
+First we must check our no-arbitrage condition \cref{eq:no_arb} is satisfied; indeed
+\begin{equation*}
+	0 < 0.95 < 1 + 0.01 < 1.05
+\end{equation*}
+Then our risk-neutral probabilities are $\tilde{p} = \frac{1+0.01-0.95}{1.05-0.95} = 0.6$ and $\tilde{q} = 1-\tilde{p} = 0.4$. Using the recipe detailed above we then simulate 100 paths of this underlying, as seen in \cref{fig:binomial_paths},
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width = 0.8\textwidth]{figs/binomial_paths_15-period.pdf}
+	\caption{100 paths of a 15-period binomial asset model.}
+	\label{fig:binomial_paths}
+\end{figure}
+\noindent and discounting back the average payoff from these paths, we obtain a Monte Carlo time-zero price of 16.97 (arbitrary units to 2d.p). Comparing this to the analytical solution of 16.12 --- calculated via backward induction --- we observe that even for a trivial 100 paths, our Monte Carlo approximation still achieves a respectable level of accuracy.
+
+Here, we simulated 100 paths only to keep the plot presentable; for any practical application, one would simulate a number of paths many orders of magnitude greater. Indeed, as the number of paths approaches infinity, by the Strong Law of Large Numbers the Monte Carlo approximation will tend towards the analytical solution. Moreover, for any standard Monte Carlo method the relative mean square error (RMSE) converges at a rate of $\mathcal{O}(M^{-1/2})$, where $M$ is the number of paths (see \cref{app:mc_convergence}). That is, to decrease the error by one decimal place one should expect to have to increase the number of paths simulated by two orders of magnitude. \cref{fig:mc_RMSE} showcases this convergence to the analytical solution empirically in terms of this RMSE, using the same parameters as before.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width = 0.8\textwidth]{figs/monte_carlo_RMSE.pdf}
+	\caption{Convergence of Monte Carlo method.}
+	\label{fig:mc_RMSE}
+\end{figure}
+
+\subsection{An exotic example}
+
+So far, one may rightfully ask: "Why bother with simulation when we can obtain the analytical solution?" To this end, we will now consider an \textit{arithmetic Asian option}.
+
+Asian options are examples of path-dependent derivatives that use the average price of the underlying over the life of the contract, as opposed to simply the price at expiration \cite{KEMNA_1990}. They have the following payoff structure:
+\begin{equation}\label{eq:asian_payoff}
+	\begin{matrix}
+		\text{call payoff}~= \max (0, S_{\text{avg}}-X)~\text{and}\\
+		\text{put payoff}~= \max (0, X-S_{\text{avg}}) \hfill
+	\end{matrix} 
+\end{equation}
+Where $S_{\text{avg}}$ is the average price of the underlying over the life of the contract and $X$ is the strike price. Most typically, in the discrete case $S_{\text{avg}}$ is taken to be the \textit{arithmetic} mean --- that is $S_{\text{avg}} = \frac{1}{N} \sum_{i=0}^N S_i$, where $N$ is the number of periods.
+
+Importantly, closed form solutions for pricing such \textit{arithmetic Asian options} do not generally exist \cite{KEMNA_1990}, as a sum of binomial distributions (in this case) does itself not necessarily have a simple distribution \cite{BINOMIAL_SUM} and thus cannot reasonably be modelled. Furthermore, backward induction becomes computationally unreasonable as the path-dependent nature of the contract prevents paths from recombining in the binomial tree, and as such the state-space grows roughly exponentially, i.e. with a complexity of $\mathcal{O}(2^N)$. This explosion in the number of possible states makes backward induction, and hence an analytical solution, unobtainable for any practical application; this is where the utility of Monte Carlo simulation becomes apparent. Indeed, the recipe detailed for vanilla options is largely unchanged for exotics; the only major modification we need make is to that of the payoff calculation. Conveniently, for our arithmetic Asian, these structures we already summarised in $\cref{eq:asian_payoff}$.
+
+As previously, we simulate 100 paths of an underlying assumed to follow a binomial model with arbitrage-free parameters:
+\begin{itemize}
+	\item time-zero stock price, $S_0 = 100$
+	\item strike price, $X = 100$
+	\item risk-free rate, $r = 0.01$
+	\item multiplicative factor for an upwards move, $u = 1.02$
+	\item multiplicative factor for a downwards move, $d = 0.975,$
+\end{itemize}
+but this time over a more useful 50-periods. These paths are shown in \cref{fig:binomial_paths_asian}, along with their arithmetic means (black dots).
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width = 0.8\textwidth]{figs/binomial_paths_asian.pdf}
+	\caption{100 paths of a 50-period binomial model, with arithmetic means.}
+	\label{fig:binomial_paths_asian}
+\end{figure}
+\noindent Applying the relevant payoff structure for our Asian call option we arrive at a time-zero price of 3.81, to two decimal places. Of course, this analysis alone is not sufficient to conclude to any meaningful confidence level the options fair value. We must additionally consider the evolution of our approximation as the number of paths increases and after many repetitions. Indeed, by such repeated simulation for logarithmically spaced values of \textit{npaths} (the number of paths), as carried out in \cref{tab:asian_mc_convergence}, we are able to more confidently conclude the options fair value lies closer to 3.67--3.68.
+\begin{table}[htb]
+	\centering
+	\input{figs/asian_convergence_table.tex}
+	\caption{Monte Carlo convergence for Asian call.}
+	\label{tab:asian_mc_convergence}
+\end{table}
+For this still reasonably trivial example of 50-periods, the number of possible states our Asian option can take has grown already to around $2^{50} \approx 1.13 \times 10^{15}$. As such, a naive backward induction implementation quickly becomes, as discussed, not reasonable. Our Monte Carlo method, on the other hand, scales near linearly (with a complexity of $\mathcal{O}(MN)$ in particular, where $M,N$ are the number of paths and periods respectively) and thus remains relatively computationally light for values of \textit{npaths} yielding a practical degree of accuracy.
+
+\section{Continuous-time considerations and conclusion}
+
+\subsection{Pricing in continuous-time}
+
+The binomial model is often presented as the discrete-time analogue to geometric Brownian motion. Indeed, by a clever choice of parameters one can show the binomial model converges in distribution to a geometric Brownian motion as the number of periods over a fixed time interval tends to infinity. Whilst we leave the details of this result to \cite[Chapter~5]{CRR_1979}, it shows how our discrete framework can be extended in a natural way to continuous-time and serves as motivation for discussing the similarities between pricing in these two settings.
+
+Recall, near the start of this document, we gave the replication argument for the discrete-time binomial model under the risk-neutral no-arbitrage framework. It is under this same framework and by a similar replication argument, only in this case with re-hedging occurring \textit{continuously}, that most pricing in continuous-time is also done, with the resulting price again able to be neatly characterised as the discounted risk-neutral expectation of future payoffs. Unlike our relatively simple binomial model however, pricing often reduces to a stochastic differential equation (SDE) for which closed form solutions rarely exist; even when they do, the derivation of such solutions requires familiarity with advanced techniques from stochastic calculus, measure theory, and functional analysis. The well-known Black--Scholes--Merton equation \cite{BSM_1973} for European options is one such SDE for which a closed form solution does exist. Our arithmetic Asian contract, on the other hand, as in the discrete-time setting does not have a closed form solution and such is the case for most path-dependent exotics.
+
+When confronted with these analytical struggles, the Monte Carlo method provides an ever simple but robust numerical approach. Following the same general recipe --- simulate paths under the risk-neutral measure~$\rightarrow$~average payoffs~$\rightarrow$~discount back to present value --- one can obtain to a practical degree of accuracy and for a reasonable amount of computational work an approximation for most types of contracts. With the only modification from discrete-time being to that of the distribution: whilst commonly a geometric Brownian motion due to its relative simplicity, more sophisticated models offering more desirable characteristics, such as stochastic volatility (Heston) \cite{HESTON} and jump-diffusion \cite{JUMP-DIFFUSION}, are often standard.
+
+\subsection{Conclusion}
+
+What is hoped to be taken away from this document, above all else, is the importance of the framework originally formalised by Cox, Ross, and Rubinstein, and restated herein under \cref{sec:risk_neutral_and_binomial}, as the fundamental machinery under which we can fairly value derivatives contracts in no-arbitrage environments, and for both the discrete and continuous cases. The assumption that both equity- and money-market investments generate the same mean return allows consensus pricing for these contracts even under differing opinions on the trajectory of the underlying. This fact alone is quite remarkable; Person A may believe a stock currently trading at \$100 will go to \$50, and person B may believe this same stock will go to \$150 over the same period, yet despite their contrasting opinions they are able to agree a fair price at which to trade both calls and puts.
+
+What also is hoped to be evident is the utility of a Monte Carlo method for those exotic and path-dependent contracts, in particular, where analytical solutions are rare. Furthermore, the robustness and implementation of such a method are almost entirely preserved when shifting from discrete- to continuous-time, offering an effective method for pricing in the latter without the need for familiarity with advanced mathematics.
+
+\printbibliography
+
+\clearpage
+
+\appendix
+
+\section{Convergence of RMSE for standard Monte Carlo method}\label{app:mc_convergence}
+
+In this appendix we derive the convergence rate of the relative mean square error (RMSE) for a standard Monte Carlo method. We first give the intuitive lemma:
+\begin{lemma}
+	Let $X_1,X_2$ be two independent random variables and define two new random variables: $Y_1 = f_1(X_1), Y_2 = f_2(Y_2)$. Then $Y_1,Y_2$ are themselves independent.
+\end{lemma}
+\noindent For a proof, see \cite[Thm~4.3.5]{CASELLA_BERGER_2002}.
+
+Now we are able to derive the convergence rate of the RMSE. Indeed, let $X_1,X_2,\ldots$ be a sequence of independent, identically distribution (i.i.d) random variables, and $f$ be some function on these random variables such that $f(X_i)$ has expectation $\mu$ and finite, non-zero variance $\sigma^2 < \infty$. In the case of derivatives pricing, for example, the function $f$ defines the payoff structure. The Monte Carlo estimator for $\mu$ is given by
+\begin{equation*}
+	\hat{\mu} = \frac{1}{M}\sum_{i=1}^{M}f(X_i)
+\end{equation*}
+and by linearity of the expectation it is easy to show $\hat{\mu}$ is unbiased.
+
+\medskip
+
+\noindent Then by independence of $X_1,X_2,\ldots$ and the lemma, we have
+\begin{equation*}
+	\text{Var} (\hat{\mu}) = \text{Var} \begin{pmatrix} \displaystyle \frac{1}{M}\sum_{i=1}^M f(X_i) \end{pmatrix} = \frac{1}{M^2} \sum_{i=1}^M \text{Var} (f(X_i)) = \frac{\sigma^2}{M}
+\end{equation*}
+and hence it follows from the definition of RMSE and the unbiasedness of $\hat{\mu}$ that
+\begin{equation*}
+	\textup{RMSE}(\hat{\mu}) = \sqrt{\mathbb{E}[(\hat{\mu}-\mu)^2]} = \sqrt{\text{Var}(\hat{\mu})+(\mathbb{E}(\hat{\mu})-\mu)^2} = \frac{\sigma}{\sqrt{M}}
+\end{equation*}
+\noindent And thus the RMSE for the Monte Carlo estimator scales like $\mathcal{O}(M^{-1/2})$, where $M$ is the number of paths being simulated.
+
+\end{document}
