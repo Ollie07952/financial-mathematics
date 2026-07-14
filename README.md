@@ -12,8 +12,8 @@ All material within this repository is educational and expository in nature, pri
 
 ### Disclaimer
 
-All materials herein are intended solely for educational purposes and not financial advice, trading, or decision making in any capacity.
-
+All materials herein are intended solely for educational purposes and are not financial advice, trading, or for decision making in any capacity.
+All materials are entirely my own, and in particular, not products of artificial intelligence.
 
 
 ### Contact
