@@ -3,7 +3,6 @@
 .ipynb_checkpoints/
 
 data/
-misc/
 
 __pycache__/
 *.pyc
@@ -12,3 +11,5 @@ __pycache__/
 
 .DS_Store
 Thumbs.db
+
+/miscPython/
