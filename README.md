@@ -1,6 +1,6 @@
 # Overview
 
-Within this repository are Python scripts, Jupyter notebooks, and .pdf and LaTeX typeset reports, covering three main areas of financial modelling:
+Within this repository are Python scripts, Jupyter notebooks, and LaTeX typeset reports, covering three main areas of financial modelling:
 
 * Derivatives Pricing,
 * Portfolio Theory, and

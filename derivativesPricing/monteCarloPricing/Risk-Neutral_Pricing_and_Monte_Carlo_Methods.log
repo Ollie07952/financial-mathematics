@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.5.10)  29 JUL 2026 08:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.5.10)  30 JUL 2026 10:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -113,15 +113,80 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@headsep=\skip56
 \dth@everypar=\toks27
 )
+(C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks28
+)
+(C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen158
+\Gin@req@width=\dimen159
+) (C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+(C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen160
+\captionmargin=\dimen161
+\caption@leftmargin=\dimen162
+\caption@rightmargin=\dimen163
+\caption@width=\dimen164
+\caption@indent=\dimen165
+\caption@parindent=\dimen166
+\caption@hangindent=\dimen167
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count295
+\c@continuedfloat=\count296
+)
+(C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count297
+\float@exts=\toks29
+\float@box=\box55
+\@float@everytoks=\toks30
+\@floatcapt=\box56
+)
+(C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen168
+\lightrulewidth=\dimen169
+\cmidrulewidth=\dimen170
+\belowrulesep=\dimen171
+\belowbottomsep=\dimen172
+\aboverulesep=\dimen173
+\abovetopsep=\dimen174
+\cmidrulesep=\dimen175
+\cmidrulekern=\dimen176
+\defaultaddspace=\dimen177
+\@cmidla=\count298
+\@cmidlb=\count299
+\@aboverulesep=\dimen178
+\@belowrulesep=\dimen179
+\@thisruleclass=\count300
+\@lastruleclass=\count301
+\@thisrulewidth=\dimen180
+)
 (C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
 
 (C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
-)
-(C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
-Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
-\KV@toks@=\toks28
 )
 (C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
@@ -166,20 +231,20 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count295
+\c@section@level=\count302
 )
 (C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count296
+\etb@tempcnta=\count303
 )
 (C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.s
 ty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\@linkdim=\dimen158
-\Hy@linkcounter=\count297
-\Hy@pagecounter=\count298
+\@linkdim=\dimen181
+\Hy@linkcounter=\count304
+\Hy@pagecounter=\count305
  (C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -187,7 +252,7 @@ Now handling font encoding PD1 ...
 ) (C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count299
+\Hy@SavedSpaceFactor=\count306
  (C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -200,14 +265,14 @@ Package hyperref Info: Plain pages OFF on input line 4210.
 Package hyperref Info: Backreferencing OFF on input line 4215.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4462.
-\c@Hy@tempcnt=\count300
+\c@Hy@tempcnt=\count307
 
 (C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4801.
-\XeTeXLinkMargin=\dimen159
+\XeTeXLinkMargin=\dimen182
 
 (C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -217,9 +282,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count301
-\Field@Width=\dimen160
-\Fld@charsize=\dimen161
+\Fld@menulength=\count308
+\Field@Width=\dimen183
+\Fld@charsize=\dimen184
 Package hyperref Info: Hyper figures OFF on input line 6078.
 Package hyperref Info: Link nesting OFF on input line 6083.
 Package hyperref Info: Hyper index ON on input line 6086.
@@ -227,16 +292,16 @@ Package hyperref Info: backreferencing OFF on input line 6093.
 Package hyperref Info: Link coloring OFF on input line 6098.
 Package hyperref Info: Link coloring with OCG OFF on input line 6103.
 Package hyperref Info: PDF/A mode OFF on input line 6108.
-\Hy@abspage=\count302
-\c@Item=\count303
-\c@Hfootnote=\count304
+\Hy@abspage=\count309
+\c@Item=\count310
+\c@Hfootnote=\count311
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 (C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
 File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
-\Fld@listcount=\count305
-\c@bookmark@seq@number=\count306
+\Fld@listcount=\count312
+\c@bookmark@seq@number=\count313
 
 (C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
 echeck.sty
@@ -250,72 +315,6 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 84.
 )
 \Hy@SectionHShift=\skip57
-)
-(C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
-Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
-
-(C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
-Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
-
-(C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
-Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
-)
-(C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
-fg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
-)
-Package graphics Info: Driver file: pdftex.def on input line 106.
-
-(C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
-File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
-))
-\Gin@req@height=\dimen162
-\Gin@req@width=\dimen163
-) (C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
-Package: caption 2023/08/05 v3.6o Customizing captions (AR)
-(C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
-Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen164
-\captionmargin=\dimen165
-\caption@leftmargin=\dimen166
-\caption@rightmargin=\dimen167
-\caption@width=\dimen168
-\caption@indent=\dimen169
-\caption@parindent=\dimen170
-\caption@hangindent=\dimen171
-Package caption Info: Standard document class detected.
-)
-\c@caption@flags=\count307
-\c@continuedfloat=\count308
-Package caption Info: hyperref package is loaded.
-)
-(C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count309
-\float@exts=\toks29
-\float@box=\box55
-\@float@everytoks=\toks30
-\@floatcapt=\box56
-)
-(C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
-Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen172
-\lightrulewidth=\dimen173
-\cmidrulewidth=\dimen174
-\belowrulesep=\dimen175
-\belowbottomsep=\dimen176
-\aboverulesep=\dimen177
-\abovetopsep=\dimen178
-\cmidrulesep=\dimen179
-\cmidrulekern=\dimen180
-\defaultaddspace=\dimen181
-\@cmidla=\count310
-\@cmidlb=\count311
-\@aboverulesep=\dimen182
-\@belowrulesep=\dimen183
-\@thisruleclass=\count312
-\@lastruleclass=\count313
-\@thisrulewidth=\dimen184
 )
 (C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.sty
 Package: biblatex 2025/07/10 v3.21 programmable bibliographies (PK/MW)
@@ -592,31 +591,24 @@ Package cleveref Info: always capitalise cross-reference names on input line 78
 (Risk-Neutral_Pricing_and_Monte_Carlo_Methods.aux)
 \openout1 = `Risk-Neutral_Pricing_and_Monte_Carlo_Methods.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-Package hyperref Info: Link coloring OFF on input line 25.
-
-(Risk-Neutral_Pricing_and_Monte_Carlo_Methods.out)
-(Risk-Neutral_Pricing_and_Monte_Carlo_Methods.out)
-\@outlinefile=\write4
-\openout4 = `Risk-Neutral_Pricing_and_Monte_Carlo_Methods.out'.
-
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
 
 (C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
@@ -653,7 +645,14 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
+Package hyperref Info: Link coloring OFF on input line 26.
+ (Risk-Neutral_Pricing_and_Monte_Carlo_Methods.out)
+(Risk-Neutral_Pricing_and_Monte_Carlo_Methods.out)
+\@outlinefile=\write4
+\openout4 = `Risk-Neutral_Pricing_and_Monte_Carlo_Methods.out'.
+
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 
@@ -671,24 +670,24 @@ Package biblatex Info: ... file 'Risk-Neutral_Pricing_and_Monte_Carlo_Methods.b
 bl' not found.
 
 No file Risk-Neutral_Pricing_and_Monte_Carlo_Methods.bbl.
-Package biblatex Info: Reference section=0 on input line 25.
-Package biblatex Info: Reference segment=0 on input line 25.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 27.
+Package biblatex Info: Reference section=0 on input line 26.
+Package biblatex Info: Reference segment=0 on input line 26.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 28.
 
 (C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 27.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 28.
 
 
 (C:\Users\ollie\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
-LaTeX Warning: Citation 'CRR_1979' on page 1 undefined on input line 34.
+LaTeX Warning: Citation 'CRR_1979' on page 1 undefined on input line 35.
 
 
-LaTeX Warning: File `figs/one_period_binomial.pdf' not found on input line 45.
+LaTeX Warning: File `figs/one_period_binomial.pdf' not found on input line 46.
 
 
 ! Package pdftex.def Error: File `figs/one_period_binomial.pdf' not found: usin
@@ -698,7 +697,7 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.45 ...8\textwidth]{figs/one_period_binomial.pdf}
+l.46 ...8\textwidth]{figs/one_period_binomial.pdf}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -714,16 +713,16 @@ If that doesn't work, type  X <return>  to quit.
 [3{C:/Users/ollie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-sup
 er-ts1.enc}]
 
-LaTeX Warning: Citation 'SHREVE_2004' on page 4 undefined on input line 86.
+LaTeX Warning: Citation 'SHREVE_2004' on page 4 undefined on input line 87.
 
 
-Overfull \hbox (10.76636pt too wide) in paragraph at lines 86--87
+Overfull \hbox (10.76636pt too wide) in paragraph at lines 87--88
 \OT1/cmr/m/n/10 alise this to $\OML/cmm/m/it/10 n$\OT1/cmr/m/n/10 -periods with
  the fol-low-ing the-o-rem, adapted from [[]]. 
  []
 
 
-LaTeX Warning: Citation 'SHREVE_2004' on page 4 undefined on input line 114.
+LaTeX Warning: Citation 'SHREVE_2004' on page 4 undefined on input line 115.
 
 
 
@@ -732,7 +731,7 @@ LaTeX Warning: Citation 'SHREVE_2004' on page 4 undefined on input line 114.
 [5]
 
 LaTeX Warning: File `figs/binomial_paths_15-period.pdf' not found on input line
- 156.
+ 157.
 
 
 ! Package pdftex.def Error: File `figs/binomial_paths_15-period.pdf' not found:
@@ -742,7 +741,7 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.156 ...width]{figs/binomial_paths_15-period.pdf}
+l.157 ...width]{figs/binomial_paths_15-period.pdf}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -752,10 +751,10 @@ If that doesn't work, type  X <return>  to quit.
 [6]
 
 LaTeX Warning: Reference `app:mc_convergence' on page 1 undefined on input line
- 162.
+ 163.
 
 
-LaTeX Warning: File `figs/monte_carlo_RMSE.pdf' not found on input line 165.
+LaTeX Warning: File `figs/monte_carlo_RMSE.pdf' not found on input line 166.
 
 
 ! Package pdftex.def Error: File `figs/monte_carlo_RMSE.pdf' not found: using d
@@ -765,7 +764,7 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.165 ...0.8\textwidth]{figs/monte_carlo_RMSE.pdf}
+l.166 ...0.8\textwidth]{figs/monte_carlo_RMSE.pdf}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -774,30 +773,30 @@ If that doesn't work, type  X <return>  to quit.
 
 [7]
 
-LaTeX Warning: Citation 'KEMNA_1990' on page 8 undefined on input line 174.
+LaTeX Warning: Citation 'KEMNA_1990' on page 8 undefined on input line 175.
 
 
-LaTeX Warning: Citation 'KEMNA_1990' on page 8 undefined on input line 183.
+LaTeX Warning: Citation 'KEMNA_1990' on page 8 undefined on input line 184.
 
 
-LaTeX Warning: Citation 'BINOMIAL_SUM' on page 8 undefined on input line 183.
+LaTeX Warning: Citation 'BINOMIAL_SUM' on page 8 undefined on input line 184.
 
 
 LaTeX Warning: Reference `eq:asian_payoff' on page 1 undefined on input line 18
-3.
+4.
 
 
-Overfull \hbox (8.27849pt too wide) in paragraph at lines 183--184
+Overfull \hbox (8.27849pt too wide) in paragraph at lines 184--185
 \OT1/cmr/m/n/10 back-ward in-duc-tion be-comes com-pu-ta-tion-ally un-rea-son-a
 ble as the path-dependent
  []
 
 
 LaTeX Warning: Reference `fig:binomial_paths_asian' on page 1 undefined on inpu
-t line 193.
+t line 194.
 
 
-LaTeX Warning: File `figs/binomial_paths_asian.pdf' not found on input line 196
+LaTeX Warning: File `figs/binomial_paths_asian.pdf' not found on input line 197
 .
 
 
@@ -808,14 +807,14 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.196 ...textwidth]{figs/binomial_paths_asian.pdf}
+l.197 ...textwidth]{figs/binomial_paths_asian.pdf}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
 LaTeX Warning: Reference `tab:asian_mc_convergence' on page 1 undefined on inpu
-t line 200.
+t line 201.
 
 
 ! LaTeX Error: File `figs/asian_convergence_table.tex' not found.
@@ -827,7 +826,7 @@ Enter file name:
 ! Emergency stop.
 <read *> 
          
-l.203 	\input{figs/asian_convergence_table.tex}
+l.204 	\input{figs/asian_convergence_table.tex}
                                                ^^M
 *** (cannot \read from terminal in nonstop modes)
 
@@ -835,7 +834,7 @@ l.203 	\input{figs/asian_convergence_table.tex}
 Here is how much of TeX's memory you used:
  20317 strings out of 468133
  369103 string characters out of 5430712
- 1173825 words of memory out of 5000000
+ 1173580 words of memory out of 5000000
  48726 multiletter control sequences out of 15000+600000
  637277 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191

@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This project explores how techniques from portfolio theory (similar to those found in Portfolio\_Optimisation\_Theory.ipynb, within the parent folder) can be applied to non-standard, qualitative data sets. The Jupyter notebook details a framework that takes qualitative relationships and maps them to quantitative outputs to aid resource management decisions.
+This project explores how techniques from portfolio theory (similar to those found in Portfolio\_Optimisation\_Theory.ipynb, within the parent folder) can be applied to qualitative data types. The Jupyter notebook details a framework that takes qualitative relationships and maps them to quantitative outputs to aid resource management decisions.
 
 
 
