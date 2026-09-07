@@ -2,13 +2,12 @@
 
 ## Introduction
 
-This projects introduces foundational concepts from risk-neutral option pricing through the discrete time binomial model, as proposed by Cox, Ross, and Rubinstein in their 1979 paper \[1]. We also explore the applications of a Monte Carlo method for pricing options, including convergence to the analytical solution (when it exists) and inherent utility of such methods for more exotic contracts. Finally, we briefly discuss extensions of these methods to the continuous-time setting where we observe analytical solutions are rare and bolster the case for the Monte Carlo method as an effective pricing tool.
+This projects introduces foundational concepts from risk-neutral option pricing through the discrete time binomial model, as proposed by Cox, Ross, and Rubinstein in their 1979 paper \[1]. We also explore the applications of a Monte Carlo method for pricing options, including convergence to the analytical solution (when it exists) and inherent utility of such methods for more exotic contracts. Finally, we briefly discuss extensions of these methods to the continuous-time setting where analytical solutions are rare and thus bolster our case for the Monte Carlo method as an effective pricing tool.
 
 ## Project Structure
 
-* *Risk-Neutral\_Pricing\_and\_Monte\_Carlo\_Methods.tex* — Written report .tex covering risk-neutral option pricing, discrete time binomial models, and Monte Carlo pricing methods.
-* *\\figuresTables* — Copies of figures and tables used in the report .tex, for reproducibility purposes.
-* *Risk-Neutral\_Pricing\_and\_Monte\_Carlo\_Methods.pdf* — A .pdf copy of the above .tex file.
+* *Risk-Neutral-Pricing-Monte-Carlo-Methods.zip* — LaTeX typeset report covering risk-neutral option pricing, discrete time binomial models, and Monte Carlo pricing methods. All figures and references included in zip.
+* *Risk-Neutral-Pricing-Monte-Carlo-Methods.pdf* — A .pdf compilation of the above mentioned LaTeX report.
 * *Discrete\_Monte\_Carlo\_Pricing.ipynb* — Accompanying Jupyter notebook containing analytical and convergence experiments used to produce figures in the written report. Includes multiperiod binomial models with analytical pricing computations, Monte Carlo convergence plots and tables, and Monte Carlo pricing methods for both European and Asian contracts.
 
 ## Bibliography
